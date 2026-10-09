@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "boot ios simulator",
+      "type": "shell",
+      "command": "${workspaceFolder}/run.sh ios --boot-only",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": []
+    },
+    {
+      "label": "boot android emulator",
+      "type": "shell",
+      "command": "${workspaceFolder}/run.sh android --boot-only",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": []
+    }
+  ]
+}

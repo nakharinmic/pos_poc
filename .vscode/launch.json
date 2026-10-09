@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "pos_poc (iOS Simulator)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "iPhone 18 Pro",
+      "preLaunchTask": "boot ios simulator"
+    },
+    {
+      "name": "pos_poc (Android Emulator)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "emulator",
+      "preLaunchTask": "boot android emulator"
+    }
+  ]
+}
