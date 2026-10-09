@@ -8,6 +8,8 @@ class SalesService extends GetxService {
 
   void add(Sale sale) => sales.insert(0, sale);
 
+  void remove(String saleId) => sales.removeWhere((sale) => sale.id == saleId);
+
   List<Sale> get todaySales {
     final now = DateTime.now();
     return sales

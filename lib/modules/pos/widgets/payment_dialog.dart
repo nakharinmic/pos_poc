@@ -40,10 +40,18 @@ class _PaymentDialogState extends State<PaymentDialog> {
     Get.back(result: sale);
   }
 
+  void _selectMethod(PaymentMethod value) {
+    if (value == PaymentMethod.promptPay) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
+    setState(() => method = value);
+  }
+
   @override
   Widget build(BuildContext context) {
     final quick = <double>{total, 100, 500, 1000}.where((v) => v >= total);
     return AlertDialog(
+      scrollable: true,
       title: const Text('ชำระเงิน'),
       content: SizedBox(
         width: 360,
@@ -64,7 +72,7 @@ class _PaymentDialogState extends State<PaymentDialog> {
                   .map((m) => ButtonSegment(value: m, label: Text(m.label)))
                   .toList(),
               selected: {method},
-              onSelectionChanged: (s) => setState(() => method = s.first),
+              onSelectionChanged: (selection) => _selectMethod(selection.first),
             ),
             const SizedBox(height: 16),
             if (method == PaymentMethod.cash) ...[

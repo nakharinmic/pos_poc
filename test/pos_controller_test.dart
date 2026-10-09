@@ -51,6 +51,16 @@ void main() {
     expect(pos.cart, isEmpty);
   });
 
+  test('ลบรายการขายออกจากประวัติ', () {
+    pos.addToCart(coffee);
+    final sale = pos.checkout(method: PaymentMethod.cash, received: 100);
+
+    sales.remove(sale.id);
+
+    expect(sales.sales, isEmpty);
+    expect(sales.todayTotal, 0);
+  });
+
   test('รับเงินไม่พอ checkout ไม่ได้', () {
     pos.addToCart(coffee);
     expect(() => pos.checkout(method: PaymentMethod.cash, received: 50),
